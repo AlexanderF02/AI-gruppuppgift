@@ -1,33 +1,33 @@
 import { model } from "@/utils/ai";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 export default function AIQuestions() {
     const [prompt, setPrompt] = useState("");
     const [answer, setAnswer] = useState("");
 
-    const [history, setHistory] = useState([]);
+    // const [history, setHistory] = useState([]);
 
     async function sendPrompt() {
         const result = await model.generateContent(prompt);
         const answerText = result.response.text();
         setAnswer(answerText);
 
-        const newHistory = [...history];
-        newHistory.push({ prompt, answer: answerText });
-        setHistory(newHistory);
+        // const newHistory = [...history];
+        // newHistory.push({ prompt, answer: answerText });
+        // setHistory(newHistory);
     }
 
-    useEffect(() => {
-        const data = JSON.parse(localStorage.getItem("history"));
+    // useEffect(() => {
+    //     const data = JSON.parse(localStorage.getItem("history"));
 
-        setHistory(data);
-    }, []);
+    //     setHistory(data);
+    // }, []);
 
-    useEffect(() => {
-        if (history.length > 0) {
-            localStorage.setItem("history", JSON.stringify(history));
-        }
-    }, [history]);
+    // useEffect(() => {
+    //     if (history.length > 0) {
+    //         localStorage.setItem("history", JSON.stringify(history));
+    //     }
+    // }, [history]);
 
     return (
         <div>
