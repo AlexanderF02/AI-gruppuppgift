@@ -13,7 +13,7 @@ export default function AIQuestions() {
 
     return (
         <div>
-            <h2 className="ml-6">AI recommendations</h2>
+            <h2 className="ml-6 font-bold">AI recommendations</h2>
 
             <input
                 className="ml-6 border border-gray-500"
@@ -23,7 +23,7 @@ export default function AIQuestions() {
 
             <button onClick={sendPrompt}>Send</button>
 
-            <p>{answer}</p>
+            <p className="mx-6">{answer}</p>
         </div>
     );
 }
