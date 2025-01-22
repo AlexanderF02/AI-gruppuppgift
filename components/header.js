@@ -12,6 +12,9 @@ export default function Header() {
       <Link className="btn btn-ghost text-xl" href="/imageAI">
         Imgage recognition
       </Link>
+      <Link className="btn btn-ghost text-xl" href="/ai-recommendations">
+        Recommendations
+      </Link>
     </div>
   );
 }
