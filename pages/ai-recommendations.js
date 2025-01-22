@@ -1,5 +1,28 @@
+import { model } from "@/utils/ai"
+import { useEffect, useState } from "react";
+
 export default function AiRecommendations() {
+    const [prompt, setPrompt] = useState("");
+    const [answer, setAnswer] = useState("");
+
+    async function sendPrompt() {
+        const result = await model.generateContent(prompt);
+        const answerText = result.response.text();
+        setAnswer(answerText);
+    }
+
     return (
-        <div>testar att exportera</div>
+        <div>
+            <h2>AI recommendations</h2>
+            <input
+                className="border border-gray-500"
+                type="text"
+                onChange={(e) => setPrompt(e.target.value)}
+            />
+
+            <button onClick={sendPrompt}>Send</button>
+
+            <p>{answer}</p>
+        </div>
     )
 }
