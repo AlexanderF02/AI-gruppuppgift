@@ -1,19 +1,38 @@
-import { model } from "@/utils/ai"
+import { model } from "@/util/ai";
 import { useEffect, useState } from "react";
 
-export default function AiRecommendations() {
+export default function AIQuestions() {
     const [prompt, setPrompt] = useState("");
     const [answer, setAnswer] = useState("");
+
+    const [history, setHistory] = useState([]);
 
     async function sendPrompt() {
         const result = await model.generateContent(prompt);
         const answerText = result.response.text();
         setAnswer(answerText);
+
+        const newHistory = [...history];
+        newHistory.push({ prompt, answer: answerText });
+        setHistory(newHistory);
     }
+
+    useEffect(() => {
+        const data = JSON.parse(localStorage.getItem("history"));
+
+        setHistory(data);
+    }, []);
+
+    useEffect(() => {
+        if (history.length > 0) {
+            localStorage.setItem("history", JSON.stringify(history));
+        }
+    }, [history]);
 
     return (
         <div>
-            <h2>AI recommendations</h2>
+            <h2>AI Questions</h2>
+
             <input
                 className="border border-gray-500"
                 type="text"
@@ -24,5 +43,5 @@ export default function AiRecommendations() {
 
             <p>{answer}</p>
         </div>
-    )
+    );
 }
