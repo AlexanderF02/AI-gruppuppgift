@@ -13,10 +13,10 @@ export default function AIQuestions() {
 
     return (
         <div>
-            <h2 className="pl-5">AI recommendations</h2>
+            <h2 className="pl-6">AI recommendations</h2>
 
             <input
-                className="border border-gray-500"
+                className="pl-6 border border-gray-500"
                 type="text"
                 onChange={(e) => setPrompt(e.target.value)}
             />
