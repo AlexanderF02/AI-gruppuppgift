@@ -1,4 +1,4 @@
-import { model } from "@/util/ai";
+import { model } from "@/utils/ai";
 import { useEffect, useState } from "react";
 
 export default function AIQuestions() {
