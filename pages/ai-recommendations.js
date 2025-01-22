@@ -13,7 +13,7 @@ export default function AIQuestions() {
 
     return (
         <div>
-            <h2 className="px-50">AI recommendations</h2>
+            <h2 className="pl-5">AI recommendations</h2>
 
             <input
                 className="border border-gray-500"
