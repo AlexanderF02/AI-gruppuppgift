@@ -1,1 +1,5 @@
-<div>test test test test</div> 
+export default function AiRecommendations() {
+    return (
+        <div>testar att exportera</div>
+    )
+}
