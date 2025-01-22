@@ -13,7 +13,7 @@ export default function Header() {
         Imgage recognition
       </Link>
       <Link className="btn btn-ghost text-xl" href="/ai-recommendations">
-        AI recommendations
+        Recommendations
       </Link>
     </div>
   );
