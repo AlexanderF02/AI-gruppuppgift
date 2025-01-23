@@ -12,7 +12,7 @@ export default function Header() {
           Chatbot
         </Link>
         <Link className="btn btn-ghost text-neutral-content" href="/imageAI">
-          Imgage recognition
+          Image recognition
         </Link>
         <Link
           className="btn btn-ghost text-neutral-content"

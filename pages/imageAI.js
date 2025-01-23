@@ -80,12 +80,12 @@ export default function Home() {
       <button className="btn btn-primary mt-2" onClick={result}>
         Click here!
       </button>
-      <div className="card lg:card-side bg-base-100 shadow-xl justify-start bg-primary text-primary-content mt-2">
+      <div className="card lg:card-side w-full bg-base-100 shadow-xl justify-start bg-primary text-primary-content mt-2">
         <figure className="w-full lg:w-1/3">
           <img
             src={getPlaceholderImg(src)}
             alt="Gemini logo/User inputed image"
-            className="w-full h-full object-cover"
+            className="w-[500px] h-[500px] object-contain"
           />
         </figure>
         <div className="card-body w-full lg:w-2/3">
