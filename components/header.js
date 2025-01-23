@@ -4,7 +4,7 @@ import DarkModeSwitch from "./DarkModeSwitch";
 export default function Header() {
   return (
     <div className="flex items-center justify-between navbar px-8 pt-4 pb-4 bg-neutral">
-      <div id="navContainer" classname="flex items-center">
+      <div id="navContainer" className="flex items-center">
         <Link className="btn btn-ghost text-neutral-content" href="/">
           Home
         </Link>
