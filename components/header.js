@@ -15,6 +15,9 @@ export default function Header() {
       <Link className="btn btn-ghost text-xl" href="/ai-recommendations">
         Recommendations
       </Link>
+      <Link className="btn btn-ghost text-xl" href="/lady-content-ai">
+        LadyContent AI
+      </Link>
     </div>
   );
 }

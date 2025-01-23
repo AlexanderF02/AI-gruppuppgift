@@ -1,8 +1,8 @@
-import { useState } from 'react';
-import axios from 'axios';
+import { useState } from "react";
+import axios from "axios";
 
 const Chatbot = () => {
-  const [message, setMessage] = useState('');
+  const [message, setMessage] = useState("");
   const [chatHistory, setChatHistory] = useState([]);
   const [loading, setLoading] = useState(false);
 
@@ -15,39 +15,40 @@ const Chatbot = () => {
 
     if (!message) return;
 
-    
     setChatHistory((prev) => [...prev, { user: true, text: message }]);
     setLoading(true);
 
     try {
       // Call Gemini API
       const response = await axios.post(
-        'https://ai.google.dev/competition/projects/gemini-chatbot',
+        "https://ai.google.dev/competition/projects/gemini-chatbot",
         {
           input: message,
         },
         {
           headers: {
-            'Authorization': `Bearer AIzaSyBnEfLJvs7O4y20C95MuUKkuY3Jih9WXPg`, 
+            Authorization: `Bearer AIzaSyBnEfLJvs7O4y20C95MuUKkuY3Jih9WXPg`,
           },
         }
       );
 
       const geminiResponse = response.data;
 
-      
-      setChatHistory((prev) => [...prev, { user: false, text: geminiResponse.output }]);
-    } catch (error) {
-      console.error('Error fetching response from Gemini API:', error);
       setChatHistory((prev) => [
         ...prev,
-        { user: false, text: 'Sorry, there was an error. Please try again.' },
+        { user: false, text: geminiResponse.output },
+      ]);
+    } catch (error) {
+      console.error("Error fetching response from Gemini API:", error);
+      setChatHistory((prev) => [
+        ...prev,
+        { user: false, text: "Sorry, there was an error. Please try again." },
       ]);
     } finally {
       setLoading(false);
     }
 
-    setMessage('');
+    setMessage("");
   };
 
   return (
@@ -57,7 +58,7 @@ const Chatbot = () => {
         {chatHistory.map((chat, index) => (
           <div
             key={index}
-            className={`chat-message ${chat.user ? 'user' : 'gemini'}`}
+            className={`chat-message ${chat.user ? "user" : "gemini"}`}
           >
             <p>{chat.text}</p>
           </div>
@@ -72,7 +73,7 @@ const Chatbot = () => {
           className="chat-input"
         />
         <button type="submit" disabled={loading} className="chat-submit-btn">
-          {loading ? 'Loading...' : 'Send'}
+          {loading ? "Loading..." : "Send"}
         </button>
       </form>
     </div>
