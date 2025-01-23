@@ -11,6 +11,14 @@ export default function Home() {
     return buffer;
   }
 
+  function getPlaceholderImg(s) {
+    if (s == "") {
+      return "./Gemini-logo.png";
+    } else {
+      return s;
+    }
+  }
+
   async function result() {
     try {
       const imgResponse = await imageResponse(src);
@@ -22,7 +30,7 @@ export default function Home() {
             mimeType: "image/jpeg",
           },
         },
-        "what is in this image",
+        "what is in this image, answer with a list of items",
       ]);
 
       const textResponse = await r.response.text();
@@ -34,7 +42,7 @@ export default function Home() {
   }
 
   return (
-    <div className="min-h-screen flex flex-col justify-center items-center overflow-hidden px-4">
+    <div className=" flex flex-col justify-center items-center overflow-hidden px-4">
       <label htmlFor="imageSrc" className="ml-5">
         Image URL:
       </label>
@@ -49,17 +57,17 @@ export default function Home() {
       <button className="btn btn-primary mt-4" onClick={result}>
         Click here!
       </button>
-      <div className="card bg-base-100 shadow-xl w-full max-w-lg flex flex-col mt-4">
-        <figure className="h-1/2 w-full flex justify-center items-center overflow-hidden">
+      <div class="card lg:card-side bg-base-100 shadow-xl justify-start">
+        <figure class="w-full lg:w-1/3">
           <img
-            src={src}
-            alt="User inputted image"
-            className="max-h-full max-w-full object-contain"
+            src={getPlaceholderImg(src)}
+            alt="Gemini logo/User inputed image"
+            class="w-full h-full object-cover"
           />
         </figure>
-        <div className="card-body flex-1 overflow-auto">
-          <h2 className="card-title">AI output</h2>
-          <p className="whitespace-pre-line break-words">{finalResponse}</p>
+        <div class="card-body w-full lg:w-2/3">
+          <h2 class="card-title">AI output</h2>
+          <p>{finalResponse}</p>
         </div>
       </div>
     </div>
