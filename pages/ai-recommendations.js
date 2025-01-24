@@ -2,22 +2,23 @@ import { model } from "@/utils/ai";
 import { useState } from "react";
 
 const startPrompt = "Suggest 5 unique movie recommendations in this genre:  ";
-const endPrompt = "Give me the answer as a json including title, year of release and a short summary.";
+const endPrompt =
+  "Give me the answer as a json including title, year of release and a short summary.";
 
 export default function AiRecommendations() {
-    const [movies, setMovies] = useState([]);
+  const [movies, setMovies] = useState([]);
 
-    async function sendPrompt(genre) {
-        const prompt = startPrompt + genre + endPrompt;
-        const result = await model.generateContent(prompt);
-        const answerText = result.response.text();
-        const cleanedText = answerText
-            .replace("```json", "")
-            .replace("```", "")
-            .trim();
-        const parsedMovies = JSON.parse(cleanedText);
-        setMovies(parsedMovies);
-    }
+  async function sendPrompt(genre) {
+    const prompt = startPrompt + genre + endPrompt;
+    const result = await model.generateContent(prompt);
+    const answerText = result.response.text();
+    const cleanedText = answerText
+      .replace("```json", "")
+      .replace("```", "")
+      .trim();
+    const parsedMovies = JSON.parse(cleanedText);
+    setMovies(parsedMovies);
+  }
 
     return (
         <div>
