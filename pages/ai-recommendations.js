@@ -22,9 +22,9 @@ export default function AiRecommendations() {
   }
 
     return (
-        <div className="min-h-screen">
-            <h1 className="ml-12 text-2xl font-bold mb-4">Get movie recommendations</h1>
-            <select className="select select-bordered select-sm w-full max-w-xs ml-12 mb-8" defaultValue={""} onChange={(e) => sendPrompt(e.target.value)}>
+        <div className="min-h-screen flex flex-col items-center pt-14">
+            <h1 className="text-4xl font-bold mb-8">Get movie recommendations</h1>
+            <select className="select select-bordered select-sm w-full max-w-xs mb-8" defaultValue={""} onChange={(e) => sendPrompt(e.target.value)}>
                 <option value={""} disabled>Select a movie genre</option>
                 <option value={"Comedy"}>Comedy</option>
                 <option value={"Drama"}>Drama</option>
@@ -33,10 +33,10 @@ export default function AiRecommendations() {
                 <option value={"Thriller"}>Thriller</option>
                 <option value={"Science fiction"}>Science fiction</option>
             </select>
-            <div className="mx-12">
+            <div>
                 <ul>
                     {movies.map((movie, index) => (
-                        <li key={index} className="mb-7 w-80">
+                        <li key={index} className="mb-8 w-80">
                             <p className="font-semibold mb-2">{movie.title} ({movie.year})</p>
                             <p className="text-sm">{movie.summary}</p>
                         </li>
