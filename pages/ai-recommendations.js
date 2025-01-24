@@ -22,7 +22,7 @@ export default function AiRecommendations() {
   }
 
     return (
-        <div>
+        <div className="min-h-screen">
             <h1 className="ml-12 text-2xl font-bold mb-4">Get movie recommendations</h1>
             <select className="select select-bordered select-sm w-full max-w-xs ml-12 mb-8" defaultValue={""} onChange={(e) => sendPrompt(e.target.value)}>
                 <option value={""} disabled>Select a movie genre</option>

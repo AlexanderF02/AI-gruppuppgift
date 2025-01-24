@@ -4,7 +4,7 @@ import DarkModeSwitch from "./DarkModeSwitch";
 export default function DaisyHeader() {
   return (
     <>
-      <div className="fixed top-0 left-0 navbar glass z-20">
+      <div className="sticky top-0 left-0 navbar glass z-20">
         <div className="navbar-start">
           <div className="dropdown">
             <div

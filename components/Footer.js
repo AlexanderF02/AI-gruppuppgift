@@ -3,7 +3,7 @@ import Link from "next/link";
 export default function () {
   return (
     <>
-      <footer className="footer fixed bottom-0 bg-neutral text-neutral-content p-10">
+      <footer className="footer relative bottom-0 bg-neutral text-neutral-content p-10">
         <nav>
           <h6 className="footer-title">Services</h6>
           <Link href="/chatbot" className="link link-hover">
