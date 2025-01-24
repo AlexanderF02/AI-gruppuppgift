@@ -44,6 +44,9 @@ export default function DaisyHeader() {
                 <Link href="/lady-content-ai">Lady Content</Link>
               </li>
               <li>
+                <Link href="/ai-recommendations">Movie recommendations</Link>
+              </li>
+              <li>
                 <Link href="/">Lady Quiz</Link>
               </li>
             </ul>
