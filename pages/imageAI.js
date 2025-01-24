@@ -62,11 +62,11 @@ export default function Home() {
   }
 
   return (
-    <div className="flex flex-col justify-center items-center overflow-hidden px-4 bg-neutral">
+    <div className="flex flex-col justify-center mt-8 items-center overflow-hidden px-4 bg-neutral-content">
       <p className="text-neutral-content">
         Enter the url of a image and the AI will tell you what it sees!
       </p>
-      <label htmlFor="imageSrc" className="ml-5 text-neutral-content">
+      <label htmlFor="imageSrc" className="ml-5 mt-4 text-neutral-content">
         Image URL:
       </label>
       <input
@@ -77,7 +77,7 @@ export default function Home() {
         className="input w-full max-w-xs"
         onChange={(e) => setSrc(e.target.value)}
       />
-      <button className="btn btn-primary mt-2" onClick={result}>
+      <button className="btn btn-accent mt-2" onClick={result}>
         Click here!
       </button>
       <div className="card lg:card-side w-full bg-base-100 shadow-xl justify-start bg-primary text-primary-content mt-2">
@@ -85,7 +85,7 @@ export default function Home() {
           <img
             src={getPlaceholderImg(src)}
             alt="Gemini logo/User inputed image"
-            className="w-[500px] h-[500px] object-contain"
+            className="w-[400px] h-[400px] object-contain"
           />
         </figure>
         <div className="card-body w-full lg:w-2/3">
