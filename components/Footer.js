@@ -10,7 +10,7 @@ export default function () {
             Chatbot
           </Link>
           <Link href="/ai-recommendations" className="link link-hover">
-            Recommentaions
+            Movie recommendations
           </Link>
           <Link href="/imageAI" className="link link-hover">
             Image AI
