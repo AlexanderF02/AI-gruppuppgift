@@ -4,7 +4,7 @@ import DarkModeSwitch from "./DarkModeSwitch";
 export default function DaisyHeader() {
   return (
     <>
-      <div className="sticky top-0 left-0 navbar glass z-20">
+      <div className="sticky top-0 left-0 navbar z-20">
         <div className="navbar-start">
           <div className="dropdown">
             <div
@@ -31,26 +31,26 @@ export default function DaisyHeader() {
               tabIndex={0}
               className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
             >
-              <li>
+              <li className="font-sans">
                 <Link href="/">Home</Link>
               </li>
-              <li>
+              <li className="font-sans">
                 <Link href="/chatbot">Chatbot</Link>
               </li>
-              <li>
+              <li className="font-sans">
                 <Link href="/imageAI">Image Recognition</Link>
               </li>
-              <li>
+              <li className="font-sans">
                 <Link href="/lady-content-ai">Lady Content</Link>
               </li>
-              <li>
+              <li className="font-sans">
                 <Link href="/ai-recommendations">Movie recommendations</Link>
               </li>
-              <li>
+              <li className="font-sans">
                 <Link href="/">Lady Quiz</Link>
               </li>
-              <li>
-              <Link href="/game">Game</Link>
+              <li className="font-sans">
+                <Link href="/game">Game</Link>
               </li>
             </ul>
           </div>
@@ -90,7 +90,9 @@ export default function DaisyHeader() {
             </svg>
           </button> */}
           <Link href="/">
-            <button className="btn btn-ghost text-xl">LadyAI</button>
+            <button className="btn btn-ghost font-display text-xl">
+              LadyAI
+            </button>
           </Link>
         </div>
         <div className="navbar-end">

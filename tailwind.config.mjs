@@ -7,6 +7,10 @@ export default {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        sans: ["var(--font-funnelSans)"],
+        display: ["var(--font-funnelDisplay)"],
+      },
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
@@ -15,6 +19,6 @@ export default {
   },
   plugins: [require("daisyui")],
   daisyui: {
-    themes: ["valentine", "luxury"],
+    themes: ["acid", "luxury"],
   },
 };
