@@ -19,7 +19,7 @@ Lady Quiz?
 
 # Design (WIP)
 
-Färg-teman: Valentine (light) Luxury (dark)
+Färg-teman: Acid (light) Luxury (dark)
 Components: Daisy UI
 
 Button 1 (vanlig knapp): btn btn-primary
