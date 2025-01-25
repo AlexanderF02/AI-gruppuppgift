@@ -49,6 +49,9 @@ export default function DaisyHeader() {
               <li>
                 <Link href="/">Lady Quiz</Link>
               </li>
+              <li>
+              <Link href="/game">Game</Link>
+              </li>
             </ul>
           </div>
         </div>

@@ -7,7 +7,7 @@ export default function App({ Component, pageProps }) {
   return (
     <>
       <DaisyHeader />
-      <Component {...pageProps} />;
+      <Component {...pageProps} />
       <Footer />
     </>
   );
