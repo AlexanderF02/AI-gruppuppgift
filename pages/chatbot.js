@@ -44,35 +44,40 @@ export default function AIChatbot() {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen p-4">
-      <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 text-center text-white">
-        Chat with <span className="text-purple-700">Lady AI</span>
+    <div className="flex flex-col items-center justify-center min-h-screen p-4 gap-2">
+      <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 text-center">
+        Chat with <span className="text-[oklch(var(--p))]">Lady AI</span>
       </h1>
 
       {error && <p className="text-red-500 mb-4 text-center">{error}</p>}
 
-      <form onSubmit={handleSubmit} className="w-full max-w-lg sm:max-w-xl p-4 rounded-lg shadow-md">
+      <form onSubmit={handleSubmit} className="w-full max-w-lg sm:max-w-xl p-8 rounded-lg shadow-md gap-2">
         <input
           type="text"
           value={message}
           onChange={handleChange}
           placeholder="Type your message..."
           disabled={loading}
-          className="w-full p-3 sm:p-4 text-sm sm:text-base border border-gray-300 rounded mb-4 text-black bg-white dark:bg-transparent dark:text-white"
+          className="input input-bordered input-primary w-full rounded-full mb-4 text-black bg-white dark:bg-transparent dark:text-white"
         />
+        
         <button 
           type="submit" 
           disabled={loading} 
-          className="w-full bg-purple-800 text-white p-3 sm:p-4 rounded-lg text-sm sm:text-base hover:bg-purple-700"
+          className="btn btn-accent w-full rounded-full"
         >
           {loading ? 'Sending...' : 'Send'}
         </button>
       </form>
 
-      {loading && <p className="text-purple-700 mt-4 text-center">Loading...</p>}
+      {loading && (
+        <p className="text-white mt-4 text-center">
+          Loading...
+        </p>
+      )}
 
       {response && !loading && (
-        <div className="w-full max-w-lg sm:max-w-xl p-4 rounded-lg shadow-md mt-4">
+        <div className="w-full max-w-lg sm:max-w-xl p-8 rounded-lg shadow-md mt-4 gap-2">
           <h3 className="text-lg sm:text-xl font-bold mb-2">AI's Response:</h3>
           <p className="text-sm sm:text-base">{response}</p>
         </div>
@@ -80,3 +85,20 @@ export default function AIChatbot() {
     </div>
   );
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

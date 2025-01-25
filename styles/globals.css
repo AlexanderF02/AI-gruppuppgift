@@ -2,10 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  @apply bg-neutral;
-  @apply text-neutral-content;
-}
+/* :root {
+  @apply bg-neutral-content;
+  @apply text-neutral;
+} */
 
 @media (prefers-color-scheme: dark) {
   :root {
