@@ -1,9 +1,9 @@
 import React from "react";
 
 export default function DarkModeSwitch() {
-  const [theme, setTheme] = React.useState("valentine");
+  const [theme, setTheme] = React.useState("acid");
   const toggleTheme = () => {
-    setTheme(theme === "luxury" ? "valentine" : "luxury");
+    setTheme(theme === "luxury" ? "acid" : "luxury");
   };
 
   React.useEffect(() => {
@@ -16,11 +16,10 @@ export default function DarkModeSwitch() {
 
         {/* sun icon */}
         <svg
-          className="swap-on h-5 w-5 text-neutral"
+          className="swap-on h-5 w-5"
           onClick={toggleTheme}
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 24 24"
-          stroke="currentColor"
         >
           <path
             strokeLinecap="round"
@@ -33,11 +32,10 @@ export default function DarkModeSwitch() {
         {/* moon icon */}
 
         <svg
-          className="swap-off h-5 w-5 text-neutral"
+          className="swap-off h-5 w-5"
           onClick={toggleTheme}
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 24 24"
-          stroke="currentColor"
         >
           <path
             strokeLinecap="round"
