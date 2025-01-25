@@ -26,6 +26,10 @@ export default function Header() {
         >
           LadyContent AI
         </Link>
+        <Link className="btn btn-ghost text-neutral-content"
+        href="/game">
+          Game
+        </Link>
       </div>
       <DarkModeSwitch />
     </div>
