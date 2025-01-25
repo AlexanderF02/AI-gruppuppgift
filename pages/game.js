@@ -53,44 +53,52 @@ export default function Game() {
   };
 
   return (
-    <div className="p-8">
-      {!country ? (
-        <div className="mt-4">
-          <p className="text-lg">Choose a country to start the quiz:</p>
-          <div className="mt-4 flex space-x-4">
-            <button
-              onClick={() => selectCountry("France")}
-              className="btn btn-primary"
-            >
-              France
-            </button>
-            <button
-              onClick={() => selectCountry("Japan")}
-              className="btn btn-primary"
-            >
-              Japan
-            </button>
-          </div>
-        </div>
-      ) : isLoading ? (
-        <p className="text-lg mt-4">Loading question..</p>
-      ) : (
-        <div className="mt-4">
-          <p className="text-lg font-bold">{question}</p>
-          <div className="mt-4 flex flex-col space-y-2">
-            {options.map((option, index) => (
+    <div className="flex items-center justify-center min-h-screen">
+      <div className="card w-full max-w-2xl bg-neutral">
+        {!country ? (
+          <div className="card-body text-center">
+            <h2 className="text-lg font-bold mb-6">
+              Choose a country to start the quiz
+            </h2>
+            <div className="flex justify-center gap-4">
               <button
-                key={index}
-                onClick={() => handleOptionClick(option)}
-                className="btn btn-outline"
+                onClick={() => selectCountry("France")}
+                className="btn rounded-full px-6 py-2"
               >
-                {option}
+                France
               </button>
-            ))}
+              <button
+                onClick={() => selectCountry("Japan")}
+                className="btn rounded-full px-6 py-2"
+              >
+                Japan
+              </button>
+            </div>
           </div>
-          {feedback && <p className="mt-4 text-lg font-semibold">{feedback}</p>}
-        </div>
-      )}
+        ) : isLoading ? (
+          <div className="card-body text-center">
+            <p className="text-lg">Loading question...</p>
+          </div>
+        ) : (
+          <div className="card-body text-center">
+            <h2 className="text-lg font-bold mb-6">{question}</h2>
+            <div className="flex flex-col gap-4">
+              {options.map((option, index) => (
+                <button
+                  key={index}
+                  onClick={() => handleOptionClick(option)}
+                  className="btn rounded-full px-8 py-4"
+                >
+                  {option}
+                </button>
+              ))}
+            </div>
+            {feedback && (
+              <p className="mt-4 text-lg font-bold">{feedback}</p>
+            )}
+          </div>
+        )}
+      </div>
     </div>
-  )
+  );
 }
