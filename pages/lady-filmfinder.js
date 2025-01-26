@@ -4,7 +4,7 @@ import { useState } from "react";
 const startPrompt = "Suggest 6 unique movie recommendations in this genre:  ";
 const endPrompt = "Give me the answer as a JSON including title, year of release and a summary (ca 50 words). Respond with JSON format only, without any additional text. Don't use quotation marks (single or double) in the summary. Don't include the year in the title. Don't recommend the same movies every time.";
 
-export default function AiRecommendations() {
+export default function LadyFilmFinder() {
   const [movies, setMovies] = useState([]);
 
   async function sendPrompt(genre) {
@@ -23,7 +23,7 @@ export default function AiRecommendations() {
   return (
     <div className="min-h-screen">
       <div className="flex flex-col items-center">
-        <h1 className="text-2xl md:text-5xl font-bold mt-32 mb-8">Movie recommendations</h1>
+        <h1 className="text-2xl md:text-5xl font-bold mt-32 mb-8">Lady FilmFinder</h1>
         <h2 className="text-base md:text-xl px-4 font-medium mb-8 mx-4 text-center">Get movie recommendations in the genre of your choice</h2>
         <select className="select select-bordered select-sm max-w-xs mb-8" defaultValue={""} onChange={(e) => sendPrompt(e.target.value)}>
           <option value={""} disabled>Select a movie genre</option>

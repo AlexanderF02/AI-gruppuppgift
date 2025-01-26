@@ -9,8 +9,8 @@ export default function () {
           <Link href="/chatbot" className="link link-hover">
             Chatbot
           </Link>
-          <Link href="/ai-recommendations" className="link link-hover">
-            Movie recommendations
+          <Link href="/lady-filmfinder" className="link link-hover">
+            Lady FilmFinder
           </Link>
           <Link href="/imageAI" className="link link-hover">
             Image AI
