@@ -5,38 +5,35 @@ export default function () {
     <>
       <footer className="footer relative bottom-0 bg-neutral text-neutral-content p-10">
         <nav>
-          <h6 className="footer-title font-display">Services</h6>
-          <Link href="/chatbot" className="link link-hover font-sans">
+          <h6 className="footer-title">Services</h6>
+          <Link href="/chatbot" className="link link-hover">
             Chatbot
           </Link>
-          <Link
-            href="/ai-recommendations"
-            className="link link-hover font-sans"
-          >
+          <Link href="/ai-recommendations" className="link link-hover">
             Movie recommendations
           </Link>
-          <Link href="/imageAI" className="link link-hover font-sans">
+          <Link href="/imageAI" className="link link-hover">
             Image AI
           </Link>
-          <Link href="/lady-content-ai" className="link link-hover font-sans">
+          <Link href="/lady-content-ai" className="link link-hover">
             Lady Content
           </Link>
-          <Link href="/" className="link link-hover font-sans">
+          <Link href="/" className="link link-hover">
             Lady Game
           </Link>
         </nav>
         <nav>
-          <h6 className="footer-title font-display">Company</h6>
-          <a className="link link-hover font-sans">About us</a>
-          <a className="link link-hover font-sans">Contact</a>
-          <a className="link link-hover font-sans">Jobs</a>
-          <a className="link link-hover font-sans">Press kit</a>
+          <h6 className="footer-title">Company</h6>
+          <a className="link link-hover">About us</a>
+          <a className="link link-hover">Contact</a>
+          <a className="link link-hover">Jobs</a>
+          <a className="link link-hover">Press kit</a>
         </nav>
         <nav>
-          <h6 className="footer-title font-display">Legal</h6>
-          <a className="link link-hover font-sans">Terms of use</a>
-          <a className="link link-hover font-sans">Privacy policy</a>
-          <a className="link link-hove font-sans">Cookie policy</a>
+          <h6 className="footer-title">Legal</h6>
+          <a className="link link-hover">Terms of use</a>
+          <a className="link link-hover">Privacy policy</a>
+          <a className="link link-hover">Cookie policy</a>
         </nav>
       </footer>
     </>
