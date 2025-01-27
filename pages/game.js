@@ -1,5 +1,3 @@
-
-
 import { useState } from "react";
 
 export default function Game() {
@@ -40,14 +38,12 @@ export default function Game() {
     fetchQuestion(chosenCountry);
   };
 
-
   const handleOptionClick = (option) => {
     if (option === correctAnswer) {
       setFeedback("Correct! 🎉🎉🎉");
     } else {
       setFeedback("Incorrect 😞😞😞");
     }
-
 
     setTimeout(() => {
       fetchQuestion(country);
@@ -95,6 +91,7 @@ export default function Game() {
                 </button>
               ))}
             </div>
+            {feedback && <p className="mt-4 text-lg font-bold">{feedback}</p>}
             {feedback && <p className="mt-4 text-lg font-bold">{feedback}</p>}
           </div>
         )}
