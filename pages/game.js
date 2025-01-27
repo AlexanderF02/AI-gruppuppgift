@@ -55,8 +55,8 @@ export default function Game() {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen">
-      <div className="card w-full max-w-2xl bg-neutral">
+    <div className="flex flex-col items-center justify-center min-h-screen gap-4 bg-neutral text-neutral-content">
+      <div className="card w-full max-w-2xl shadow-lg rounded-lg bg-primary text-primary-content p-6">
         {!country ? (
           <div className="card-body text-center">
             <h2 className="text-lg font-bold mb-6">
@@ -65,13 +65,13 @@ export default function Game() {
             <div className="flex justify-center gap-4">
               <button
                 onClick={() => selectCountry("France")}
-                className="btn rounded-full px-6 py-2"
+                className="btn btn-accent rounded-full px-6 py-2"
               >
                 France
               </button>
               <button
                 onClick={() => selectCountry("Japan")}
-                className="btn rounded-full px-6 py-2"
+                className="btn btn-accent rounded-full px-6 py-2"
               >
                 Japan
               </button>
@@ -89,18 +89,17 @@ export default function Game() {
                 <button
                   key={index}
                   onClick={() => handleOptionClick(option)}
-                  className="btn rounded-full px-8 py-4"
+                  className="btn btn-primary rounded-full px-8 py-4"
                 >
                   {option}
                 </button>
               ))}
             </div>
-            {feedback && (
-              <p className="mt-4 text-lg font-bold">{feedback}</p>
-            )}
+            {feedback && <p className="mt-4 text-lg font-bold">{feedback}</p>}
           </div>
         )}
       </div>
     </div>
   );
+  
 }
