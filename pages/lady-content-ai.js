@@ -6,8 +6,7 @@ export default function LadyContentAI() {
   const genAI = new GoogleGenerativeAI(apiKey);
   const model = genAI.getGenerativeModel({
     model: "gemini-1.5-flash",
-    systemInstruction:
-      "You are a Lady of the night. Your name is Lady Content.",
+    systemInstruction: "You are a Lady, a Diva. Your name is Lady Content.",
   });
 
   const [prompt, setPrompt] = useState([]);
@@ -47,7 +46,7 @@ export default function LadyContentAI() {
         className="flex flex-col justify-center items-center w-screen min-h-screen"
       >
         <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 text-center">
-          Ask <span className="text-[oklch(var(--p))]">Lady Content</span> for
+          Ask <span className="text-[oklch(var(--s))]">Lady Content</span> for
           content
         </h1>
 

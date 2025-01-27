@@ -4,7 +4,7 @@ import DarkModeSwitch from "./DarkModeSwitch";
 export default function DaisyHeader() {
   return (
     <>
-      <div className="sticky top-0 left-0 navbar z-20">
+      <div className="navbar z-20">
         <div className="navbar-start">
           <div className="dropdown">
             <div
@@ -32,13 +32,10 @@ export default function DaisyHeader() {
               className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
             >
               <li className="font-sans">
-                <Link href="/">Home</Link>
+                <Link href="/chatbot">Lady Chat</Link>
               </li>
               <li className="font-sans">
-                <Link href="/chatbot">Chatbot</Link>
-              </li>
-              <li className="font-sans">
-                <Link href="/imageAI">Image Recognition</Link>
+                <Link href="/imageAI">Lady Image</Link>
               </li>
               <li className="font-sans">
                 <Link href="/lady-content-ai">Lady Content</Link>
@@ -47,10 +44,7 @@ export default function DaisyHeader() {
                 <Link href="/lady-filmfinder">Lady FilmFinder</Link>
               </li>
               <li className="font-sans">
-                <Link href="/">Lady Quiz</Link>
-              </li>
-              <li className="font-sans">
-                <Link href="/game">Game</Link>
+                <Link href="/game">Lady Game</Link>
               </li>
             </ul>
           </div>
@@ -97,7 +91,7 @@ export default function DaisyHeader() {
         </div>
         <div className="navbar-end">
           <DarkModeSwitch />
-
+          {/* 
           <button className="btn btn-ghost btn-circle">
             <div className="indicator">
               <svg
@@ -116,7 +110,7 @@ export default function DaisyHeader() {
               </svg>
               <span className="badge badge-xs badge-primary indicator-item"></span>
             </div>
-          </button>
+          </button> */}
         </div>
       </div>
     </>
