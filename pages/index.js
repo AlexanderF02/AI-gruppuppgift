@@ -21,7 +21,7 @@ export default function Home() {
             </figure>
             <div className="card-body">
               <Link href="/chatbot">
-                <h2 className="card-title mb-2">Chatbot</h2>
+                <h2 className="card-title mb-2">Lady Chat</h2>
                 <p className="mb-4 font-sans">Chat with the Lady?</p>
 
                 <button className="btn btn-primary">Buy Now</button>
@@ -35,8 +35,8 @@ export default function Home() {
               <div className="aspect-[4/3] bg-secondary h-full w-full"></div>
             </figure>
             <div className="card-body">
-              <Link href="/ai-recommendations">
-                <h2 className="card-title mb-2">Recommendations!</h2>
+              <Link href="/lady-filmfinder">
+                <h2 className="card-title mb-2">Lady Filmfinder!</h2>
                 <p className="mb-4">The Lady Recommends...?</p>
 
                 <button className="btn btn-primary">Buy Now</button>
@@ -51,7 +51,7 @@ export default function Home() {
             </figure>
             <div className="card-body">
               <Link href="/imageAI">
-                <h2 className="card-title mb-2">Image AI</h2>
+                <h2 className="card-title mb-2">Lady Image</h2>
                 <p className="mb-4">The Lady paints an image?</p>
 
                 <button className="btn btn-primary">Buy Now</button>
@@ -81,10 +81,10 @@ export default function Home() {
               <div className="aspect-[4/3] bg-secondary h-full w-full"></div>
             </figure>
             <div className="card-body">
-              <h2 className="card-title mb-2">Lady Quiz</h2>
-              <p className="mb-4">The Lady wants you to join her quiz</p>
+              <h2 className="card-title mb-2">Lady Game</h2>
+              <p className="mb-4">The Lady wants you to play her game</p>
 
-              <Link href="/">
+              <Link href="/game.js">
                 <button className="btn btn-primary">Buy Now</button>
               </Link>
             </div>

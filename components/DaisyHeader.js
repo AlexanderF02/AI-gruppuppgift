@@ -32,25 +32,19 @@ export default function DaisyHeader() {
               className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
             >
               <li className="font-sans">
-                <Link href="/">Home</Link>
+                <Link href="/chatbot">Lady Chat</Link>
               </li>
               <li className="font-sans">
-                <Link href="/chatbot">Chatbot</Link>
-              </li>
-              <li className="font-sans">
-                <Link href="/imageAI">Image Recognition</Link>
+                <Link href="/imageAI">Lady Image</Link>
               </li>
               <li className="font-sans">
                 <Link href="/lady-content-ai">Lady Content</Link>
               </li>
               <li className="font-sans">
-                <Link href="/lady-filmfinder">Movie recommendations</Link>
+                <Link href="/lady-filmfinder">Lady FilmFinder</Link>
               </li>
               <li className="font-sans">
-                <Link href="/">Lady Quiz</Link>
-              </li>
-              <li className="font-sans">
-                <Link href="/game">Game</Link>
+                <Link href="/game">Lady Game</Link>
               </li>
             </ul>
           </div>
