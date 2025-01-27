@@ -1,17 +1,12 @@
 import { useState, useEffect } from "react";
-import { GoogleGenerativeAI } from "@google/generative-ai";
+import { model } from "@/utils/ai";
 
 export default function LadyContentAI() {
-  const apiKey = process.env.NEXT_PUBLIC_API_KEY;
-  const genAI = new GoogleGenerativeAI(apiKey);
-  const model = genAI.getGenerativeModel({
-    model: "gemini-1.5-flash",
-    systemInstruction: "You are a Lady, a Diva. Your name is Lady Content.",
-  });
-
   const [prompt, setPrompt] = useState([]);
+  const [textPrompt, setTextPromt] = useState("");
   const [answer, setAnswer] = useState("");
   const [history, setHistory] = useState([]);
+  const [textHistory, setTextHistory] = useState("");
 
   async function sendPrompt() {
     const result = await model.generateContent(prompt);
@@ -20,6 +15,15 @@ export default function LadyContentAI() {
     const newHistory = [...history];
     newHistory.push({ prompt, answer });
     setHistory(newHistory);
+  }
+
+  async function sendTextPrompt() {
+    const result = await model.generateContent(textPrompt);
+    const answerText = result.response.text();
+    setAnswer(answerText);
+    const newTextHistory = [...textHistory];
+    newTextHistory.push({ textPrompt, answer });
+    setHistory(newTextHistory);
   }
 
   async function sendOnPageLoad(question) {
@@ -52,18 +56,15 @@ export default function LadyContentAI() {
 
         <div
           id="contentContainer"
-          className="flex flex-row gap-2 justify-center items-start pt-2 px-8 mb-4 w-full lg:px-80"
+          className="chat chat-start flex flex-row gap-2 justify-center items-start pt-2 px-8 mb-4 w-full lg:px-80"
         >
-          <div className="avatar placeholder">
-            <div className="bg-secondary text-secondary-content w-12 rounded-full">
+          <div className="chat-image avatar placeholder">
+            <div className="bg-secondary text-secondary-content w-10 rounded-full">
               <span className="font-display">LC</span>
             </div>
           </div>
 
-          <div
-            id="answerBox"
-            className="flex flex-row bg-secondary rounded-lg p-4"
-          >
+          <div id="answerBox" className="chat-bubble bg-secondary p-4">
             <p className="text-secondary-content">{answer}</p>
           </div>
         </div>

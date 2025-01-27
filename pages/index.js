@@ -85,7 +85,7 @@ export default function Home() {
               <h2 className="card-title mb-2">Lady Game</h2>
               <p className="mb-4">The Lady wants you to play her game</p>
 
-              <Link href="/game.js">
+              <Link href="/game">
                 <button className="btn btn-error rounded-full">Start</button>
               </Link>
             </div>
