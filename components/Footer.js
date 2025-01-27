@@ -7,18 +7,18 @@ export default function () {
         <nav>
           <h6 className="footer-title">Services</h6>
           <Link href="/chatbot" className="link link-hover">
-            Chatbot
-          </Link>
-          <Link href="/lady-filmfinder" className="link link-hover">
-            Lady FilmFinder
+            Lady Chat
           </Link>
           <Link href="/imageAI" className="link link-hover">
-            Image AI
+            Lady Image 
           </Link>
           <Link href="/lady-content-ai" className="link link-hover">
             Lady Content
           </Link>
-          <Link href="/" className="link link-hover">
+          <Link href="/lady-filmfinder" className="link link-hover">
+            Lady FilmFinder
+          </Link>
+          <Link href="/game" className="link link-hover">
             Lady Game
           </Link>
         </nav>
