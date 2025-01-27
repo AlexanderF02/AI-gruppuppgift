@@ -66,11 +66,11 @@ export default function Home() {
   }
 
   return (
-    <div className="flex flex-col justify-center mt-8 items-center overflow-hidden px-4 ">
-      <p className="text-neutral">
+    <div className="flex flex-col justify-center mt-8 mb-6 items-center overflow-hidden px-4 ">
+      <p className="text-base-content">
         Enter the url of a image and the AI will tell you what it sees!
       </p>
-      <label htmlFor="imageSrc" className="ml-5 mt-4 text-neutral">
+      <label htmlFor="imageSrc" className="ml-5 mt-4 text-base-content">
         Image URL:
       </label>
       <input

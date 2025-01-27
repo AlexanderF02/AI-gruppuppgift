@@ -16,7 +16,7 @@ export default function DarkModeSwitch() {
 
         {/* sun icon */}
         <svg
-          className="swap-on h-5 w-5"
+          className="swap-on h-5 w-5 text-base-content fill-current"
           onClick={toggleTheme}
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 24 24"
@@ -32,7 +32,7 @@ export default function DarkModeSwitch() {
         {/* moon icon */}
 
         <svg
-          className="swap-off h-5 w-5"
+          className="swap-off h-5 w-5 text-base-content fill-current"
           onClick={toggleTheme}
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 24 24"
