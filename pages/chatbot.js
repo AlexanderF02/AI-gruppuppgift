@@ -8,6 +8,7 @@ export default function AIChatbot() {
   const [response, setResponse] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+  const [showChat, setShowChat] = useState(false);
 
   const apiKey = process.env.NEXT_PUBLIC_API_KEY;
   const genAI = new GoogleGenerativeAI(apiKey);
@@ -27,6 +28,7 @@ export default function AIChatbot() {
 
     setLoading(true);
     setError(null);
+    setShowChat(true);
 
     try {
       const aiResponse = await model.generateContent(message);
@@ -63,26 +65,40 @@ export default function AIChatbot() {
           onChange={handleChange}
           placeholder="Type your message..."
           disabled={loading}
-          className="input input-bordered input-primary w-full rounded-full mb-4 text-black bg-white dark:bg-transparent dark:text-white"
+          className={`input input-bordered input-primary w-full rounded-full mb-4 text-black bg-white dark:bg-transparent dark:text-white ${message.trim() ? 'border-blue-500' : 'border-gray-500'} ${loading ? 'bg-gray-200' : ''}`}
         />
 
         <button
           type="submit"
           disabled={loading}
-          className="btn btn-accent w-full rounded-full"
+          className={`btn w-full rounded-full ${loading ? 'btn-disabled' : 'btn-accent'}`}
         >
           {loading ? "Sending..." : "Send"}
         </button>
       </form>
 
-      {loading && <p className="text-white mt-4 text-center">Loading...</p>}
+      {showChat && (
+        <div className="w-full max-w-lg sm:max-w-xl p-8 rounded-lg shadow-md gap-2 mt-4">
+          <div className="chat chat-start">
+            <div className="chat-bubble">
+              {message && message}
+            </div>
+          </div>
 
-      {response && !loading && (
-        <div className="w-full max-w-lg sm:max-w-xl p-8 rounded-lg shadow-md mt-4 gap-2">
-          <h3 className="text-lg sm:text-xl font-bold mb-2">AI's Response:</h3>
-          <p className="text-sm sm:text-base">{response}</p>
+          {response && !loading && (
+            <div className="chat chat-end">
+              <div className="chat-bubble">{response}</div>
+            </div>
+          )}
+
+          {loading && <p className="text-white mt-4 text-center">Loading...</p>}
         </div>
       )}
     </div>
   );
 }
+
+
+
+
+
