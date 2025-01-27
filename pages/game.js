@@ -1,3 +1,5 @@
+
+
 import { useState } from "react";
 
 export default function Game() {
@@ -77,7 +79,7 @@ export default function Game() {
           </div>
         ) : isLoading ? (
           <div className="card-body text-center">
-            <p className="text-lg">Loading question...</p>
+            <p className="text-lg">Loading question..</p>
           </div>
         ) : (
           <div className="card-body text-center">

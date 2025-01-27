@@ -11,6 +11,7 @@ export default function AIChatbot() {
   const [showChat, setShowChat] = useState(false);
 
   const apiKey = process.env.NEXT_PUBLIC_API_KEY;
+
   const genAI = new GoogleGenerativeAI(apiKey);
   const model = genAI.getGenerativeModel({
     model: "gemini-1.5-flash",
@@ -82,7 +83,7 @@ export default function AIChatbot() {
       </form>
 
       {showChat && (
-        <div className="w-full max-w-lg sm:max-w-xl p-8 rounded-lg shadow-md gap-2 mt-4">
+        <div className="w-full max-w-lg sm:max-w-xl p-8 gap-2 mt-4 bg-transparent">
           <div className="chat chat-start">
             <div className="chat-bubble">{message && message}</div>
           </div>

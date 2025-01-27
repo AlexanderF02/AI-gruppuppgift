@@ -23,7 +23,7 @@ export default function LadyFilmFinder() {
   return (
     <div className="min-h-screen">
       <div className="flex flex-col items-center">
-        <h1 className="text-2xl md:text-5xl font-bold mt-32 mb-8">Lady FilmFinder</h1>
+        <h1 className="text-2xl md:text-4xl font-bold mt-32 mb-8">Lady <span className="text-[oklch(var(--s))]">FilmFinder</span></h1>
         <h2 className="text-base md:text-xl px-4 font-medium mb-8 mx-4 text-center">Get movie recommendations in the genre of your choice</h2>
         <select className="select select-bordered select-sm max-w-xs mb-8" defaultValue={""} onChange={(e) => sendPrompt(e.target.value)}>
           <option value={""} disabled>Select a movie genre</option>
