@@ -5,6 +5,7 @@ export default function Home() {
   const [src, setSrc] = useState("");
   const [finalResponse, setFinalResponse] = useState("");
   const [jsData, setData] = useState([]);
+  const [show, setShow] = useState(false);
 
   async function imageResponse(src) {
     const response = await fetch(src);
@@ -59,18 +60,49 @@ export default function Home() {
       console.log(JSONresponse);
       const parsedData = JSON.parse(JSONresponse);
       setData(parsedData);
+      setShow(true);
     } catch (error) {
       console.error("Error generating content:", error);
       setFinalResponse("Error processing the image.");
     }
   }
 
+  function Cardcomp({ isVisible }) {
+    if (!isVisible) {
+      return null;
+    }
+
+    return (
+      <div className="card lg:card-side w-[1000px] shadow-xl justify-start bg-primary text-primary-content mt-2">
+        <figure className="w-full lg:w-1/2">
+          <img
+            src={getPlaceholderImg(src)}
+            alt="Gemini logo/User inputed image"
+            className="w-[400px] h-[400px] object-contain"
+          />
+        </figure>
+        <div className="card-body w-full lg:w-1/2">
+          <h2 className="card-title text-primary-content">AI output</h2>
+          <div className="text-primary-content">
+            {finalResponse === "Error processing the image." ? (
+              <p>{finalResponse}</p>
+            ) : (
+              <Details data={jsData} />
+            )}
+          </div>
+        </div>
+      </div>
+    );
+  }
+
   return (
-    <div className="flex flex-col justify-center mt-8 mb-6 items-center overflow-hidden px-4 ">
-      <p className="text-neutral-content">
-        Enter the url of a image and the AI will tell you what it sees!
+    <div className="flex flex-col justify-center min-h-screen mt-8 mb-6 items-center overflow-hidden px-4 ">
+      <p className="text-base-content text-2xl">
+        Enter the url of a image and the{" "}
+        <span className="text-[oklch(var(--p))]">Lady AI</span> will tell you
+        what it sees!
       </p>
-      <label htmlFor="imageSrc" className="ml-5 mt-4 text-neutral-content">
+      <label htmlFor="imageSrc" className="ml-5 mt-4 text-base-content">
         Image URL:
       </label>
       <input
@@ -84,25 +116,7 @@ export default function Home() {
       <button className="btn btn-accent mt-2 rounded-full" onClick={result}>
         Click here!
       </button>
-      <div className="card lg:card-side w-full shadow-xl justify-start bg-primary text-primary-content mt-2">
-        <figure className="w-full lg:w-1/3">
-          <img
-            src={getPlaceholderImg(src)}
-            alt="Gemini logo/User inputed image"
-            className="w-[400px] h-[400px] object-contain"
-          />
-        </figure>
-        <div className="card-body w-full lg:w-2/3">
-          <h2 className="card-title text-primary-content">AI output</h2>
-          <div className="text-primary-content">
-            {finalResponse === "Error processing the image." ? (
-              <p>{finalResponse}</p>
-            ) : (
-              <Details data={jsData} />
-            )}
-          </div>
-        </div>
-      </div>
+      <Cardcomp isVisible={show} />
     </div>
   );
 }
