@@ -11,7 +11,6 @@ export default function LadyFilmFinder() {
     const prompt = startPrompt + genre + endPrompt;
     const result = await model.generateContent(prompt);
     const answerText = result.response.text();
-    console.log(answerText)
     const cleanedText = answerText
       .replace("```json", "")
       .replace("```", "")
@@ -24,8 +23,8 @@ export default function LadyFilmFinder() {
     <div className="min-h-screen">
       <div className="flex flex-col items-center">
         <h1 className="text-2xl md:text-4xl font-bold mt-32 mb-8">Lady <span className="text-[oklch(var(--s))]">FilmFinder</span></h1>
-        <h2 className="text-base md:text-xl px-4 font-medium mb-8 mx-4 text-center">Discover an exquisite selection of films, tailored to your chosen genre</h2>
-        <select className="select select-bordered select-sm max-w-xs mb-8 dark:rounded-xl" defaultValue={""} onChange={(e) => sendPrompt(e.target.value)}>
+        {movies.length === 0 ? <h2 className="text-center text-base md:text-xl mx-4 font-semibold mb-8">Discover an exquisite selection of films, tailored to your chosen genre</h2> : <h2></h2>}
+        <select className="select select-bordered select-sm max-w-xs mb-8" defaultValue={""} onChange={(e) => sendPrompt(e.target.value)}>
           <option value={""} disabled>Select a movie genre</option>
           <option value={"Comedy"}>Comedy</option>
           <option value={"Drama"}>Drama</option>
@@ -38,8 +37,8 @@ export default function LadyFilmFinder() {
       <div>
         {movies.length ? <h2 className="text-center text-base md:text-lg mx-4 font-semibold mb-8">Here are your personally curated movie recommendations</h2> : <h2></h2>}
         <div className="flex flex-wrap justify-center gap-4 mb-8">
-          {movies.map((movie, index) => (
-            <div key={index} className="w-80 p-10 border rounded-2xl">
+          {movies.map((movie) => (
+            <div key={`${movie.title}-${movie.year}`} className="w-80 p-10 border rounded-2xl">
               <p className="font-semibold mb-2">{movie.title} ({movie.year})</p>
               <p className="text-sm">{movie.summary}</p>
             </div>
