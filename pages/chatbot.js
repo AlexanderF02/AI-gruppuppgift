@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { GoogleGenerativeAI } from "@google/generative-ai";
+import { model } from "@/utils/ai";
 
 export default function AIChatbot() {
   const [message, setMessage] = useState("");
@@ -9,14 +9,6 @@ export default function AIChatbot() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [showChat, setShowChat] = useState(false);
-
-  const apiKey = process.env.NEXT_PUBLIC_API_KEY;
-
-  const genAI = new GoogleGenerativeAI(apiKey);
-  const model = genAI.getGenerativeModel({
-    model: "gemini-1.5-flash",
-    systemInstruction: "You are a Lady! Please act like one!",
-  });
 
   const handleChange = (e) => {
     setMessage(e.target.value);
@@ -98,4 +90,6 @@ export default function AIChatbot() {
     </div>
   );
 }
+
+
 
