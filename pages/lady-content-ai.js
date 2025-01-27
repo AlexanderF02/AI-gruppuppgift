@@ -1,29 +1,19 @@
 import { useState, useEffect } from "react";
+import { useRouter } from "next/router";
 import { model } from "@/utils/ai";
+import { CopyIcon } from "@radix-ui/react-icons";
 
 export default function LadyContentAI() {
   const [prompt, setPrompt] = useState([]);
   const [textPrompt, setTextPromt] = useState("");
   const [answer, setAnswer] = useState("");
-  const [history, setHistory] = useState([]);
-  const [textHistory, setTextHistory] = useState("");
-
   async function sendPrompt() {
-    const result = await model.generateContent(prompt);
-    const answerText = result.response.text();
-    setAnswer(answerText);
-    const newHistory = [...history];
-    newHistory.push({ prompt, answer });
-    setHistory(newHistory);
-  }
-
-  async function sendTextPrompt() {
-    const result = await model.generateContent(textPrompt);
-    const answerText = result.response.text();
-    setAnswer(answerText);
-    const newTextHistory = [...textHistory];
-    newTextHistory.push({ textPrompt, answer });
-    setHistory(newTextHistory);
+    const promptResult = await model.generateContent(prompt);
+    const textResult = await model.generateContent(textPrompt);
+    const answerText = textResult.response.text();
+    const answerPrompt = promptResult.response.text();
+    const fullAnswer = answerText + answerPrompt;
+    setAnswer(fullAnswer);
   }
 
   async function sendOnPageLoad(question) {
@@ -33,15 +23,21 @@ export default function LadyContentAI() {
 
   useEffect(() => {
     sendOnPageLoad(
-      "Can you generate content for me? Please act as if I did not ask, you are just offering your assistance as a service."
+      "Introduce yourself to the user as Lady Content. Explain that you primarely are a diva and secondary a Content generator that generates blog posts, articles, emails or poems. Also please do not use *"
     );
   }, []);
 
-  useEffect(() => {
-    if (history.length > 0) {
-      localStorage.setItem("history", JSON.stringify(history));
-    }
-  }, [history]);
+  // useEffect(() => {
+  //   if (history.length > 0) {
+  //     localStorage.setItem("history", JSON.stringify(history));
+  //   }
+  // }, [history]);
+
+  const copy = useRouter();
+  const base = answer;
+  const copyBase = (e) => {
+    navigator.clipboard.writeText(base);
+  };
 
   return (
     <>
@@ -64,9 +60,20 @@ export default function LadyContentAI() {
             </div>
           </div>
 
-          <div id="answerBox" className="chat-bubble bg-secondary p-4">
+          <div
+            id="answerBox"
+            className="chat-bubble bg-secondary px-4 pt-4 pb-6"
+          >
             <p className="text-secondary-content">{answer}</p>
           </div>
+          <span className="flex justify-end items-end">
+            <button
+              onClick={copyBase}
+              className="btn btn-sm btn-secondary-content rounded-full"
+            >
+              <CopyIcon />
+            </button>
+          </span>
         </div>
 
         <div className="flex flex-col justify-center items-center p-8 w-full">
@@ -74,12 +81,15 @@ export default function LadyContentAI() {
             <div className="flex items-center w-full gap-2">
               <input
                 className="input rounded-full input-bordered w-full"
-                placeholder="Please treat the Lady as a Lady..."
+                placeholder="Be specific regarding the type of content you need and always treat the Lady as a Lady..."
                 type="text"
-                onChange={(e) => setPrompt(e.target.value)}
+                onChange={(e) => setTextPromt(e.target.value)}
               />
 
-              <button className="btn btn-accent" onClick={sendPrompt}>
+              <button
+                className="btn btn-accent rounded-full"
+                onClick={sendPrompt}
+              >
                 Send
               </button>
             </div>
