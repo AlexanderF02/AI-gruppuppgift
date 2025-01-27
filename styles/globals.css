@@ -2,11 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* :root {
-  @apply bg-neutral-content;
-  @apply text-neutral;
-} */
-
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
