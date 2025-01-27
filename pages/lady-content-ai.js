@@ -6,8 +6,7 @@ export default function LadyContentAI() {
   const genAI = new GoogleGenerativeAI(apiKey);
   const model = genAI.getGenerativeModel({
     model: "gemini-1.5-flash",
-    systemInstruction:
-      "You are a Lady of the night. Your name is Lady Content.",
+    systemInstruction: "You are a Lady, a Diva. Your name is Lady Content.",
   });
 
   const [prompt, setPrompt] = useState([]);

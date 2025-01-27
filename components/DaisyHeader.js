@@ -4,7 +4,7 @@ import DarkModeSwitch from "./DarkModeSwitch";
 export default function DaisyHeader() {
   return (
     <>
-      <div className="sticky top-0 left-0 navbar z-20">
+      <div className="navbar z-20">
         <div className="navbar-start">
           <div className="dropdown">
             <div
@@ -91,7 +91,7 @@ export default function DaisyHeader() {
         </div>
         <div className="navbar-end">
           <DarkModeSwitch />
-
+          {/* 
           <button className="btn btn-ghost btn-circle">
             <div className="indicator">
               <svg
@@ -110,7 +110,7 @@ export default function DaisyHeader() {
               </svg>
               <span className="badge badge-xs badge-primary indicator-item"></span>
             </div>
-          </button>
+          </button> */}
         </div>
       </div>
     </>
