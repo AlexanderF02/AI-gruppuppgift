@@ -97,7 +97,7 @@ export default function Home() {
 
   return (
     <div className="flex flex-col justify-center min-h-screen mt-8 mb-6 items-center overflow-hidden px-4 ">
-      <p className="text-base-content">
+      <p className="text-base-content text-2xl">
         Enter the url of a image and the{" "}
         <span className="text-[oklch(var(--p))]">Lady AI</span> will tell you
         what it sees!

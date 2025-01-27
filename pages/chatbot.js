@@ -65,13 +65,17 @@ export default function AIChatbot() {
           onChange={handleChange}
           placeholder="Type your message..."
           disabled={loading}
-          className={`input input-bordered input-primary w-full rounded-full mb-4 text-black bg-white dark:bg-transparent dark:text-white ${message.trim() ? 'border-blue-500' : 'border-gray-500'} ${loading ? 'bg-gray-200' : ''}`}
+          className={`input input-bordered input-primary w-full rounded-full mb-4 text-black bg-white dark:bg-transparent dark:text-white ${
+            message.trim() ? "border-blue-500" : "border-gray-500"
+          } ${loading ? "bg-gray-200" : ""}`}
         />
 
         <button
           type="submit"
           disabled={loading}
-          className={`btn w-full rounded-full ${loading ? 'btn-disabled' : 'btn-accent'}`}
+          className={`btn w-full rounded-full ${
+            loading ? "btn-disabled" : "btn-accent"
+          }`}
         >
           {loading ? "Sending..." : "Send"}
         </button>
@@ -80,9 +84,7 @@ export default function AIChatbot() {
       {showChat && (
         <div className="w-full max-w-lg sm:max-w-xl p-8 rounded-lg shadow-md gap-2 mt-4">
           <div className="chat chat-start">
-            <div className="chat-bubble">
-              {message && message}
-            </div>
+            <div className="chat-bubble">{message && message}</div>
           </div>
 
           {response && !loading && (
@@ -97,8 +99,3 @@ export default function AIChatbot() {
     </div>
   );
 }
-
-
-
-
-
