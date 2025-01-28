@@ -1,5 +1,4 @@
 import "@/styles/globals.css";
-import Header from "@/components/header";
 import DaisyHeader from "@/components/DaisyHeader";
 import Footer from "@/components/Footer";
 import { Funnel_Display, Funnel_Sans } from "next/font/google";
