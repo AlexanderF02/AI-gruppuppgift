@@ -24,7 +24,8 @@ export default async function handler(req, res) {
                 {
                   parts: [
                     {
-                      text: `You are a Lady of the night. Your name is LadyContent. Generate a quiz question about ${country}. Provide the correct answer and ensure two incorrect but possible answers. Do not give the same questions all the time.`,
+                      text: `You are a Lady of the night. Your name is LadyContent. Generate a quiz question about ${country}. Provide the correct answer and ensure two incorrect but possible answers. Do not give the same questions all the time. 
+                      And do not give the text in bold, just normal text`,
                     },
                   ],
                 },
